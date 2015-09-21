@@ -10,6 +10,7 @@ No installation necessary. Everything you need is in the folder. Just pull and u
 
 #How to use
 In order to use the tool, you must launch from your command line the tool, followed by a .txt file containing the geneset you want to analyse (no quotation marks, one gene per line)
+```
 
 The tool has been optimised to be used with Pypy. You need to download and install it. The tool might be a lot slower (10 fold) without Pypy.
 

@@ -1,4 +1,3 @@
-#!/bin/python/
 import sys
 import cPickle as pickle
 import numpy as np
@@ -7,19 +6,13 @@ import os.path
 import os
 
 
-
-        
-### fisher test with threshold to avoid bias in big groups
-#### originally by Sebastien Lemieux
-### optimized for use with pypy
-
-
 def lngamm(z):
-    ## Reference: "Lanczos, C. 'A precision approximation 
-    ## of the gamma function', J. SIAM Numer. Anal., B, 1, 86-96, 1964."
-    ## Translation of  Alan Miller's FORTRAN-implementation
-    ## See http://lib.stat.cmu.edu/apstat/245
-
+    """
+    Reference: "Lanczos, C. 'A precision approximation 
+    of the gamma function', J. SIAM Numer. Anal., B, 1, 86-96, 1964."
+    Translation of  Alan Miller's FORTRAN-implementation
+    See http://lib.stat.cmu.edu/apstat/245
+    """
     x = 0.1659470187408462e-06 / (z + 7);
     x += 0.9934937113930748e-05 / (z + 6);
     x -= 0.1385710331296526     / (z + 5);
@@ -42,10 +35,12 @@ def lnbico (n,k):
     return (lnfact (n) - lnfact (k) - lnfact (n-k))
 
 def fisher_exact_nc (n11,n12,n21,n22,w):
-    ##Fisher's exact test modified to use Fisher's non-central hypergeometric
-    ##distribution with a odds-ratio bias of w.  The procedure returns the p-value
-    ##based on a null-hypothesis of the odds-ratio being <= w.
-    ##Significant calls indicates that n11 / n12 is enriched by at least w.
+    """
+    Fisher's exact test modified to use Fisher's non-central hypergeometric
+    distribution with a odds-ratio bias of w.  The procedure returns the p-value
+    based on a null-hypothesis of the odds-ratio being <= w.
+    Significant calls indicates that n11 / n12 is enriched by at least w.
+    """
     x = n11
     m1 = n11 + n21
     m2 = n12 + n22
@@ -59,12 +54,15 @@ def fisher_exact_nc (n11,n12,n21,n22,w):
     
     return exp (den_sum - sum_l)
 
-def func(k,go_dict):
+def lookup(k,go_dict):
     g = go_dict[k]
     return g["name"]
 
-### function ancestry, makes sure to keep the highest enriched ancestor
+
 def ancestry (child,slim,go_dict,goslims,deletes):
+    """
+    function ancestry, makes sure to keep the highest enriched ancestor
+    """
     if go_dict.has_key(child):
         cnames = go_dict[child]
         for i in cnames.keys():
@@ -78,7 +76,3 @@ def ancestry (child,slim,go_dict,goslims,deletes):
                         
                     else:
                         ancestry(parent,False,go_dict,goslims,deletes)
-
-    
-
-
