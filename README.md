@@ -10,8 +10,12 @@ No installation necessary. Everything you need is in the folder. Just pull and u
 
 #How to use
 In order to use the tool, you must launch from your command line the tool, followed by a .txt file containing the geneset you want to analyse (no quotation marks, one gene per line)
+as simple as this:
+```python GOrichr.py geneset.txt```
 
-The tool has been optimised to be used with Pypy. You need to download and install it. The tool might be a lot slower (10 fold) without Pypy.
+The tool has been optimised to be used with PyPy You need to download and install it. The tool might be a lot slower (10 fold) without PyPy.
+FOr more information look here: http://pypy.org/
+
 
 #Motivation
 This tool has been used to perform GO term enrichment for the following paper:
