@@ -19,8 +19,6 @@ For more information look here: http://pypy.org/
 
 #Motivation
 This tool has been used to perform GO term enrichment for the following paper:
-
-Acute monocytic leukemia cells display non-oncogene addiction to immunoproteasomes.
-by Alexandre Rouette, Assya Trofimov, David Haberl, Geneviève Boucher, Josée Hébert, Guy Sauvageau, Sébastien Lemieux and Claude Perreault
-
-Manuscript under review.
+Expression of immunoproteasome genes is regulated by cell-intrinsic and -extrinsic factors in human cancers..
+by Alexandre Rouette, Assya Trofimov, David Haberl, Geneviève Boucher, Lavallée Vincent-Philippe, D'Angelo Giovanni, Josée Hébert, Guy Sauvageau, Sébastien Lemieux and Claude Perreault
+published in Scientific Reports, September 2016
